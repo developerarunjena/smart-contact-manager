@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+</head>
+<body>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 pt-5">
+                <div class="my-card mt-4">
+                    <h2 class="text-center font-weight-bold">Login</h2>
+                    <div th:if="${param.error}" class="alert alert-danger"> <p class="text-danger">[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</p>
+                        Invalid email and password
+                    </div>
+                    <div th:if="${param.logout}" class="alert alert-danger">
+                        You have logged out
+                    </div>
+                    <form action="#" th:action="@{/dologin}" method="post">
+                        <div class="form-group">
+                            <label for="email_field">Email</label>
+                            <input
+                                    name="email"
+                                    type="email"
+                                    class="form-control"
+                                    id="email_field"
+                                    aria-describedby="email"
+                                    placeholder="Enter email here"
+                                    required
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="password_field">Password</label>
+                            <input
+                                    name="password"
+                                    type="password"
+                                    class="form-control"
+                                    id="password_field"
+                                    aria-describedby="password"
+                                    placeholder="Enter password here"
+                                    required
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
+                        </div>
+
+                        <div id="register-link" class="text-right">
+                            <a href="/signup/" class="text-info">New user</a>
+                        </div>
+
+                        <div class="container text-center">
+
+
+                            <a th:href="@{/forgot}" > Forgot Password ?</a>
+
+
+                        </div>
+                        <div class="container text-center mt-2">
+                            <button type="submit" class="btn bg-success text-white">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
