@@ -10,9 +10,11 @@
     </parent>
     <groupId>com.smartcontact</groupId>
     <artifactId>smart-contact-manger</artifactId>
+    <packaging>war</packaging>
     <version>0.0.1-SNAPSHOT</version>
     <name>smart-contact-manger</name>
     <description>Demo project for Spring Boot</description>
+   <url>http://maven.apache.org</url>
     <properties>
         <java.version>1.8</java.version>
     </properties>
@@ -92,6 +94,10 @@
             <artifactId>assertj-core</artifactId>
         </dependency>
     </dependencies>
+    <properties>
+   	<maven.compiler.source>6</maven.compiler.source>
+   	<maven.compiler.target>1.6</maven.compiler.target>
+    </properties>
 
     <build>
         <plugins>
