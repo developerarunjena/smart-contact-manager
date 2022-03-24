@@ -14,11 +14,6 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>smart-contact-manger</name>
     <description>Demo project for Spring Boot</description>
-<<<<<<< HEAD
-    <packaging>war</packaging>
-=======
-   <url>http://maven.apache.org</url>
->>>>>>> 56b351794ab7a02d1c9d91e94f03c9d6a934493d
     <properties>
         <java.version>1.8</java.version>
         <maven.compiler.source>6</maven.compiler.source>
