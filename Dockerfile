@@ -6,7 +6,7 @@
 #COPY ./target/smart-contact-manager.war /usr/local/tomcat/webapps
 FROM openjdk:8-jdk-alpine
 VOLUME /tmp
-ADD target/devOpsDemo-0.0.1-SNAPSHOT.jar app.jar
+ADD target/smart-contact-manager.jar app.jar
 
 ENTRYPOINT ["java","-jar","app.jar"]
 
