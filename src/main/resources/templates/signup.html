@@ -5,22 +5,23 @@
     <title>signup</title>
 </head>
 <body>
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 offset-md-3">
-                    <div class="my-card mt-3">
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="my-card mt-3">
 
-                        <div th:if="${session.message}" th:classappend="${session.message.type}" class="alert alert-dismissible fade show">
-                            <p class="text-center" th:text="${session.message.content}"></p>
-                            <th:block th:text="${#session.removeAttribute('message')}"></th:block>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                        <h2 class="text-center">SignUp Here!</h2>
-                        <form novalidate action="" th:action="@{/register}" method="post" th:object="${user}">
-                            <div class="form-group">
-                                <label for="name_field">Name</label>
-                                <input
+                    <div th:if="${session.message}" th:classappend="${session.message.type}"
+                         class="alert alert-dismissible fade show">
+                        <p class="text-center" th:text="${session.message.content}"></p>
+                        <th:block th:text="${#session.removeAttribute('message')}"></th:block>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <h2 class="text-center">SignUp Here!</h2>
+                    <form novalidate action="" th:action="@{/register}" method="post" th:object="${user}">
+                        <div class="form-group">
+                            <label for="name_field">Name</label>
+                            <input
                                     name="name"
                                     type="text"
                                     class="form-control"
@@ -30,74 +31,75 @@
                                     placeholder="Enter name here"
                                     required
                                     th:value="${user.name}"
-                                />
-                               <!-- th:classappend="${#fields.hasErrors('name') ? 'is-invalid':''}"
-                                <div class="invalid-feedback" th:each="e : ${#fields.errors()}" th:text="${e}">
+                            />
+                            <!-- th:classappend="${#fields.hasErrors('name') ? 'is-invalid':''}"
+                             <div class="invalid-feedback" th:each="e : ${#fields.errors()}" th:text="${e}">
 
-                                </div>-->
-                                <div th:each="e: ${#fields.errors('name')}" th:text="${e}" class="invalid-feedback" ></div>
-                            </div>
-                            <div class="form-group">
-                                <label for="email_field">Email</label>
-                                <input
-                                        name="email"
-                                        type="email"
-                                        class="form-control"
-                                        th:classappend="${#fields.hasErrors('email') ? 'is-invalid':''}"
-                                        id="email_field"
-                                        aria-describedby="email"
-                                        placeholder="Enter email here"
-                                        required
-                                        th:value="${user.email}"
-                                />
-                                <div th:each="e: ${#fields.errors('email')}" th:text="${e}" class="invalid-feedback" ></div>
-                            </div>
-                            <div class="form-group">
-                                <label for="password_field">Password</label>
-                                <input
-                                        name="password"
-                                        type="password"
-                                        class="form-control"
-                                        th:classappend="${#fields.hasErrors('password') ? 'is-invalid':''}"
-                                        id="password_field"
-                                        aria-describedby="password"
-                                        placeholder="Enter password here"
-                                        required
-                                />
-                                <div th:each="e: ${#fields.errors('password')}" th:text="${e}" class="invalid-feedback" ></div>
-                            </div>
-                            <div class="form-group">
-                                <label for="about_field">About</label>
-                                <input
-                                        name="about"
-                                        type="text"
-                                        class="form-control"
-                                        th:classappend="${#fields.hasErrors('about') ? 'is-invalid':''}"
-                                        id="about_field"
-                                        aria-describedby="about"
-                                        placeholder="Enter about here"
-                                        required
-                                        th:value="${user.about}"
-                                />
-                                <div th:each="e: ${#fields.errors('about')}" th:text="${e}" class="invalid-feedback" ></div>
-                            </div>
-                            <div class="form-group from-check text-center">
-                               <input type="checkbox"
-                                  name="agreement"
-                                  class="form-check-input"
-                                  id="agreement"
-                                />
-                                <label for="agreement">Accept terms and conditions</label>
-                            </div>
-                            <div class="container text-center">
-                                <button type="submit" class="btn bg-success text-white">Submit</button>
-                                <button type="reset" class="btn bg-danger text-white">Reset</button>
-                            </div>
-                        </form>
-                    </div>
+                             </div>-->
+                            <div th:each="e: ${#fields.errors('name')}" th:text="${e}" class="invalid-feedback"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email_field">Email</label>
+                            <input
+                                    name="email"
+                                    type="email"
+                                    class="form-control"
+                                    th:classappend="${#fields.hasErrors('email') ? 'is-invalid':''}"
+                                    id="email_field"
+                                    aria-describedby="email"
+                                    placeholder="Enter email here"
+                                    required
+                                    th:value="${user.email}"
+                            />
+                            <div th:each="e: ${#fields.errors('email')}" th:text="${e}" class="invalid-feedback"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password_field">Password</label>
+                            <input
+                                    name="password"
+                                    type="password"
+                                    class="form-control"
+                                    th:classappend="${#fields.hasErrors('password') ? 'is-invalid':''}"
+                                    id="password_field"
+                                    aria-describedby="password"
+                                    placeholder="Enter password here"
+                                    required
+                            />
+                            <div th:each="e: ${#fields.errors('password')}" th:text="${e}"
+                                 class="invalid-feedback"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="about_field">About</label>
+                            <input
+                                    name="about"
+                                    type="text"
+                                    class="form-control"
+                                    th:classappend="${#fields.hasErrors('about') ? 'is-invalid':''}"
+                                    id="about_field"
+                                    aria-describedby="about"
+                                    placeholder="Enter about here"
+                                    required
+                                    th:value="${user.about}"
+                            />
+                            <div th:each="e: ${#fields.errors('about')}" th:text="${e}" class="invalid-feedback"></div>
+                        </div>
+                        <div class="form-group from-check text-center">
+                            <input type="checkbox"
+                                   name="agreement"
+                                   class="form-check-input"
+                                   id="agreement"
+                            />
+                            <label for="agreement">Accept terms and conditions</label>
+                        </div>
+                        <div class="container text-center">
+                            <button type="submit" class="btn bg-success text-white">Submit</button>
+                            <button type="reset" class="btn bg-danger text-white">Reset</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 </body>
 </html>

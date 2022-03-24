@@ -68,7 +68,7 @@ const paymentStart = () => {
 
     $.ajax({
         url: "/user/create_order",
-        data: JSON.stringify({ amount: amount, info: "order_request" }),
+        data: JSON.stringify({amount: amount, info: "order_request"}),
         contentType: "application/json",
         type: "POST",
         dataType: "json",

@@ -17,22 +17,22 @@ public class User {
     private String name;
     @Column(unique = true)
     @NotBlank(message = "Email field not be blank !")
-    @Email(regexp = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$",message = "Email is not valid")
+    @Email(regexp = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$", message = "Email is not valid")
     private String email;
     @NotBlank(message = "Password field not be blank")
-    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$",message = "Password is not valid")
+    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$", message = "Password is not valid")
     private String password;
     private String role;
     private boolean enabled;
     private String imageUrl;
     @Column(length = 500)
-    @Size(min = 6,max=30, message = "About greater than 6 less than 20 required")
+    @Size(min = 6, max = 30, message = "About greater than 6 less than 20 required")
     private String about;
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY, mappedBy = "user",orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user", orphanRemoval = true)
     private List<Contact> contacts = new ArrayList<>();
 
 
-    public User(){
+    public User() {
         super();
     }
 

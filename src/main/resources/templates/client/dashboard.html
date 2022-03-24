@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
       th:replace="client/base::layout(~{::section})">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <title>this is home page</title>
 </head>
 <body>
@@ -14,7 +14,7 @@
                 <div class="container text-center">
                     <img src="" style="height: 100px; width: 100px"
                          class="my_profile_picture" th:src="@{'/img/contact_logo.png'}"
-                         alt="profile photo" />
+                         alt="profile photo"/>
                 </div>
 
                 <h2
@@ -25,10 +25,10 @@
                    class="btn btn-primary mt-4 btn-block text-uppercase">Add
                     New Contact</a>
 
-                <hr />
+                <hr/>
 
                 <h3 class="my-3">Donate Us</h3>
-                <input id="payment_field" type="text" class="form-control my-2" placeholder="Enter amount here" />
+                <input id="payment_field" type="text" class="form-control my-2" placeholder="Enter amount here"/>
 
                 <div class="container text-center mt-3">
                     <button onclick="paymentStart()" class="btn btn-success btn-block">Checkout</button>

@@ -37,6 +37,7 @@ public class UserController {
     private UserRepository userRepository;
     @Autowired
     private ContactRepository contactRepository;
+
     // method for adding common data to response
     @ModelAttribute
     public void addCommonData(Model model, Principal principal) {
@@ -322,7 +323,6 @@ public class UserController {
         //if you want you can save this to your data..
         return order.toString();
     }*/
-
 
 
 }

@@ -16,21 +16,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class SearchController {
-	@Autowired
-	private UserRepository userRepository;
-	@Autowired
-	private ContactRepository contactRepository;
-	
+    @Autowired
+    private UserRepository userRepository;
+    @Autowired
+    private ContactRepository contactRepository;
 
-	
-	//search handler
-	@GetMapping("/search/{query}")
-	public ResponseEntity<?> search(@PathVariable("query") String query,Principal principal)
-	{
-		System.out.println(query);		
-		User user=this.userRepository.getUserByUserName(principal.getName());
-		List<Contact> contacts = this.contactRepository.findByNameContainingAndUser(query, user);
-		return ResponseEntity.ok(contacts);
-	}
-	
+
+    //search handler
+    @GetMapping("/search/{query}")
+    public ResponseEntity<?> search(@PathVariable("query") String query, Principal principal) {
+        System.out.println(query);
+        User user = this.userRepository.getUserByUserName(principal.getName());
+        List<Contact> contacts = this.contactRepository.findByNameContainingAndUser(query, user);
+        return ResponseEntity.ok(contacts);
+    }
+
 }

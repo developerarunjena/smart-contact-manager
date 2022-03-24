@@ -1,4 +1,5 @@
 package com.smartcontact.repo;
+
 import java.util.List;
 
 import com.smartcontact.model.Contact;

@@ -21,64 +21,68 @@ public class HomeController {
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @RequestMapping("/")
-    public String home(Model model){
-        model.addAttribute("title","Home - Contact Manager");
+    public String home(Model model) {
+        model.addAttribute("title", "Home - Contact Manager");
         return "index";
     }
+
     @RequestMapping("/about")
-    public String about(Model model){
-        model.addAttribute("title","About - Contact Manager");
+    public String about(Model model) {
+        model.addAttribute("title", "About - Contact Manager");
         return "about";
     }
+
     @RequestMapping("/signup")
-    public String signup(Model model){
-        model.addAttribute("title","Register - Contact Manager");
-        model.addAttribute("user",new User());
+    public String signup(Model model) {
+        model.addAttribute("title", "Register - Contact Manager");
+        model.addAttribute("user", new User());
         return "signup";
     }
+
     //.. handler for register user
-    @RequestMapping(value = "/register",method = RequestMethod.POST)
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String registerUser(
             @Valid
             @ModelAttribute("user") User user,
             BindingResult bindingResult,
-            @RequestParam(value = "agreement",defaultValue = "false") boolean agreement,
+            @RequestParam(value = "agreement", defaultValue = "false") boolean agreement,
             Model model,
             HttpSession session
-            ){
-      try{
-          // if agreement not accepted
-          if(!agreement){
-              System.out.println("Please accept terms and condition");
-              throw new Exception("please accept terms and condition");
-          }
-          if(bindingResult.hasErrors()){
-              System.out.println("Error " + bindingResult.toString());
-              model.addAttribute("user", user);
-              return "signup";
-          }
-          user.setRole("ROLE_USER");
-          user.setEnabled(true);
-          user.setImageUrl("banner.jpg");
-          user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+    ) {
+        try {
+            // if agreement not accepted
+            if (!agreement) {
+                System.out.println("Please accept terms and condition");
+                throw new Exception("please accept terms and condition");
+            }
+            if (bindingResult.hasErrors()) {
+                System.out.println("Error " + bindingResult.toString());
+                model.addAttribute("user", user);
+                return "signup";
+            }
+            user.setRole("ROLE_USER");
+            user.setEnabled(true);
+            user.setImageUrl("banner.jpg");
+            user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 
-          System.out.println("Agreement "+ agreement);
+            System.out.println("Agreement " + agreement);
 
-          System.out.println("USER" + user);
-          User result = userRepository.save(user);
-          model.addAttribute("user", new User());
-          session.setAttribute("message", new Message("successfully registered","alert-success"));
-          return "signup";
-      }catch(Exception e){
+            System.out.println("USER" + user);
+            User result = userRepository.save(user);
+            model.addAttribute("user", new User());
+            session.setAttribute("message", new Message("successfully registered", "alert-success"));
+            return "signup";
+        } catch (Exception e) {
             e.printStackTrace();
-            model.addAttribute("user",user);
-            session.setAttribute("message", new Message("Server error "+ e.getMessage(),"alert-danger"));
+            model.addAttribute("user", user);
+            session.setAttribute("message", new Message("Server error " + e.getMessage(), "alert-danger"));
             return "signup";
         }
     }
+
     @GetMapping(value = "/login")
-    public String login(Model model){
-        model.addAttribute("title","Login - Contact Manager");
+    public String login(Model model) {
+        model.addAttribute("title", "Login - Contact Manager");
         return "login";
     }
 
