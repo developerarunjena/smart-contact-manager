@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.smartcontact</groupId>
     <artifactId>smart-contact-manger</artifactId>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <version>0.0.1-SNAPSHOT</version>
     <name>smart-contact-manger</name>
     <description>Demo project for Spring Boot</description>
