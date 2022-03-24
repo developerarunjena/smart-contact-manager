@@ -10,4 +10,4 @@ ADD target/smart-contact-manager.jar app.jar
 
 ENTRYPOINT ["java","-jar","app.jar"]
 
-EXPOSE 2222
+EXPOSE 5000
