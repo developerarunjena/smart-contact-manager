@@ -10,5 +10,5 @@ phases:
       - echo Build completed successfully
 artifacts:
   files:
-    - target/smart-contact-manager
+    - target/smart-contact-manager.jar
   discard-paths: yes
